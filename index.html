@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci incidunt, dolores iusto eius, vitae cumque sint similique, alias error saepe voluptatem fugiat distinctio non quia. Sapiente unde tempora et dolorem.
+        Vero in nobis et esse eligendi, temporibus rem ex nostrum? Ipsam fugit quod ratione dolorem reiciendis necessitatibus molestiae beatae. Autem dignissimos labore eos reiciendis similique quia dolore, quaerat dolorum nam.
+        Quae nam labore, inventore, sapiente tempora reprehenderit soluta laudantium nesciunt impedit est accusamus autem, molestias provident odit sed saepe architecto cum facere. Eos illo odit odio dolor, itaque necessitatibus eius.
+    </p>
+    </section>
+    <script src="anime.min.js"></script>
+    <script>
+        const text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+        const animation = anime.timeline({
+            targets :'.text span',
+            easing : 'easeInOutExpo',
+            loop : true,
+        });
+
+        animation
+        .add({
+            rotate : function(){
+                return anime.random(-360,360)
+            },
+            translateX : function(){
+                return anime.random(-500,500)
+            },
+            translateY : function(){
+                return anime.random(-500,500)
+            },
+            duration: 5000,
+            delay : anime.stagger(20),
+        })
+
+
+        .add({
+            rotate : 0,
+            translateX : 0,
+            translateY : 0,
+            duration: 5000,
+            delay : anime.stagger(20),
+        });
+
+
+
+    </script>
+</body>
+</html>
